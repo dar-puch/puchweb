@@ -1,0 +1,188 @@
+//resets
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, table,
+caption, tbody, tfoot, thead, tr, th, td
+                  {margin: 0;padding: 0;border: 0;outline: 0;
+                  font-size: 100%;vertical-align: baseline;
+                  background: transparent;}
+body              {line-height: 1;}
+ol, ul            {list-style: none;}
+blockquote, q     {quotes: none;}
+blockquote:before, blockquote:after,
+q:before, q:after {content: '';	content: none;}
+:focus            {outline: 0;}
+ins               {text-decoration: none;}
+del               {text-decoration: line-through;}
+table             {border-collapse: collapse;border-spacing: 0;}
+
+//---------
+
+
+@import url('https://fonts.googleapis.com/css?family=Lekton|Oswald:400,600&subset=latin-ext');
+
+
+$large-width: 800px;
+
+
+$font-dark: #040404;
+$font-accent: #51BEBC; //blue
+$font-basic: "Lekton", "Courier New", Courier, monospace;
+$font-heading: "Oswald", "Lucida Console", Monaco, monospace;
+$bcg-accent: #F1DB26; //yellow
+$bcg-basic: #fff;
+$bcg-secondary: #C9C2B2;//gray;
+
+
+
+@mixin flex-row {
+  display: flex;
+  flex-direction: row; //inline
+  justify-content: space-between; //from side to side
+  align-items: center; //vertically
+}
+a {
+	text-decoration: none;
+	color: $font-dark;
+}
+
+p {
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+body {
+font-family: $font-basic;
+  color: $font-dark;
+  line-height: 1.65;
+  max-width: 1140px;
+  margin: 0 auto;
+  width: 100%;
+}
+h1, h2, h3, h4 {
+  font-family: $font-heading;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+h2 {
+  font-size: 2rem;
+}
+
+nav {
+  ul {
+  @include flex-row;
+  justify-content: flex-end;
+      }
+  li {
+      margin-right: 30px;
+      a{
+          font-family: $font-heading;
+          font-size: 1.2rem;
+          text-transform: uppercase;
+          transition: .3s all;
+          color: white;
+        }
+        a:hover, a:focus, a:active {
+          color: $font-accent;
+
+      }
+
+    }
+}
+
+header {
+
+  @include flex-row;
+  flex-wrap: wrap;
+  align-items: stretch;
+  width: 100%;
+  box-sizing: border-box;
+
+
+}
+
+
+.header-left {
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 20px;
+  background-color: $bcg-accent;
+  color: $font-accent;
+  font-family: $font-heading;
+  text-transform: uppercase;
+    height: 250px;
+
+}
+
+.header-right {
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 20px;
+  color: white;
+  background-color: $bcg-secondary;
+    height: 250px;
+}
+@media (min-width: $large-width) {
+
+  .header-left {
+    order: 1;
+    width: 50%;
+    height: 400px;
+      padding: 40px;
+  }
+  .header-right {
+    width: 50%;
+    height: 400px;
+      padding: 40px;
+    order:2;
+  }
+  .title {
+    bottom: 40%;
+  }
+}
+.header-right-text  {
+  font-size: 1.5em;
+  position: absolute;
+  bottom: 40px;
+}
+.title {
+  font-size: 3.5em;
+  position: absolute;
+  left: 0;
+right: 0;
+  bottom: 20%;
+  text-align: center;
+
+}
+
+.mosaik {
+  @include flex-row;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  .square {
+    width: 12.5%;
+  }
+}
+.about ul {
+  @include flex-row;
+  flex-wrap: wrap;
+  align-items: stretch;
+  li {
+    width: 300px;
+  padding: 0 30px 20px 0;
+  margin:  0 auto;
+  &:last-child {
+    padding-right: 0;
+  }
+}
+}
